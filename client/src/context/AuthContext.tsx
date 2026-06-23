@@ -15,7 +15,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem('anchor_token'));
+  const [token, setToken] = useState<string | null>(localStorage.getItem('buildmode_token'));
   const [loading, setLoading] = useState(true);
 
   const isPremium = user?.subscription_status === 'active';
@@ -29,7 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const data = await api.getMe();
       setUser(data.user);
     } catch {
-      localStorage.removeItem('anchor_token');
+      localStorage.removeItem('buildmode_token');
       setToken(null);
       setUser(null);
     } finally {
@@ -43,20 +43,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signin = async (email: string, password: string) => {
     const data = await api.signin(email, password);
-    localStorage.setItem('anchor_token', data.token);
+    localStorage.setItem('buildmode_token', data.token);
     setToken(data.token);
     setUser(data.user);
   };
 
   const signup = async (email: string, password: string, name?: string) => {
     const data = await api.signup(email, password, name);
-    localStorage.setItem('anchor_token', data.token);
+    localStorage.setItem('buildmode_token', data.token);
     setToken(data.token);
     setUser(data.user);
   };
 
   const signout = () => {
-    localStorage.removeItem('anchor_token');
+    localStorage.removeItem('buildmode_token');
     setToken(null);
     setUser(null);
   };

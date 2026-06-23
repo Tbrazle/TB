@@ -40,12 +40,12 @@ export default function Habits() {
   const completedToday = habits.filter(h => h.completed_today).length;
   const categories = ['general', 'health', 'mindset', 'relationships', 'finance', 'career'];
 
-  if (loading) return <div className="flex justify-center py-12"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-anchor-600"></div></div>;
+  if (loading) return <div className="flex justify-center py-12"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-buildmode-600"></div></div>;
 
   return (
     <div className="space-y-6">
       <div className="card">
-        <h1 className="text-2xl font-bold text-anchor-900">Habits</h1>
+        <h1 className="text-2xl font-bold text-buildmode-900">Habits</h1>
         <p className="text-gray-600 mt-1">{completedToday}/{habits.length} done today</p>
       </div>
 
@@ -66,7 +66,7 @@ export default function Habits() {
           <div key={habit.id} className="card flex items-center gap-3 py-3">
             <button onClick={() => toggleHabit(habit.id)}
               className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
-                habit.completed_today ? 'bg-anchor-500 border-anchor-500 text-white' : 'border-gray-300 hover:border-anchor-400'
+                habit.completed_today ? 'bg-buildmode-500 border-buildmode-500 text-white' : 'border-gray-300 hover:border-buildmode-400'
               }`}
             >
               {habit.completed_today && <span className="text-xs">✓</span>}

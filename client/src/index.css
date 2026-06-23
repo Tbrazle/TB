@@ -4,24 +4,24 @@
 
 @layer base {
   body {
-    @apply bg-anchor-50 text-gray-800 font-sans antialiased;
+    @apply bg-buildmode-50 text-gray-800 font-sans antialiased;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-anchor-600 hover:bg-anchor-700 text-white font-medium py-2.5 px-6 rounded-lg transition-all duration-200 ease-in-out shadow-sm hover:shadow-md;
+    @apply bg-buildmode-600 hover:bg-buildmode-700 text-white font-medium py-2.5 px-6 rounded-lg transition-all duration-200 ease-in-out shadow-sm hover:shadow-md;
   }
   .btn-secondary {
-    @apply border border-anchor-300 text-anchor-700 hover:bg-anchor-100 font-medium py-2.5 px-6 rounded-lg transition-all duration-200;
+    @apply border border-buildmode-300 text-buildmode-700 hover:bg-buildmode-100 font-medium py-2.5 px-6 rounded-lg transition-all duration-200;
   }
   .btn-ghost {
-    @apply text-anchor-600 hover:text-anchor-800 hover:bg-anchor-100 font-medium py-2 px-4 rounded-lg transition-all duration-200;
+    @apply text-buildmode-600 hover:text-buildmode-800 hover:bg-buildmode-100 font-medium py-2 px-4 rounded-lg transition-all duration-200;
   }
   .card {
-    @apply bg-white rounded-2xl shadow-sm border border-anchor-100 p-6;
+    @apply bg-white rounded-2xl shadow-sm border border-buildmode-100 p-6;
   }
   .input-field {
-    @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-anchor-500 focus:border-anchor-500 outline-none transition-all duration-200;
+    @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-buildmode-500 focus:border-buildmode-500 outline-none transition-all duration-200;
   }
 }

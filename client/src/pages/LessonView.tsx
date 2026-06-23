@@ -33,13 +33,13 @@ export default function LessonView() {
     }
   };
 
-  if (loading) return <div className="flex justify-center py-12"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-anchor-600"></div></div>;
+  if (loading) return <div className="flex justify-center py-12"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-buildmode-600"></div></div>;
   if (error) return <div className="card text-red-600">{error}</div>;
   if (!lesson) return <div className="card text-gray-500">Lesson not found.</div>;
 
   return (
     <div className="space-y-6">
-      <Link to="/lessons" className="text-sm text-anchor-600 hover:underline inline-flex items-center gap-1">
+      <Link to="/lessons" className="text-sm text-buildmode-600 hover:underline inline-flex items-center gap-1">
         ← Back to lessons
       </Link>
 
@@ -50,7 +50,7 @@ export default function LessonView() {
           <span>{lesson.estimated_minutes} min</span>
           {lesson.is_premium && <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full text-xs">Premium</span>}
         </div>
-        <h1 className="text-2xl font-bold text-anchor-900">{lesson.title}</h1>
+        <h1 className="text-2xl font-bold text-buildmode-900">{lesson.title}</h1>
         <p className="text-gray-600 mt-2">{lesson.description}</p>
 
         {/* Locked premium overlay */}
@@ -76,10 +76,10 @@ export default function LessonView() {
 
         {/* Mark complete */}
         {(!lesson.is_premium || isPremium) && (
-          <div className="mt-6 pt-6 border-t border-anchor-100">
+          <div className="mt-6 pt-6 border-t border-buildmode-100">
             {completed ? (
               <div className="text-center">
-                <span className="text-anchor-600 font-medium flex items-center justify-center gap-2">
+                <span className="text-buildmode-600 font-medium flex items-center justify-center gap-2">
                   ✓ Completed
                 </span>
               </div>

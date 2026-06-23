@@ -21,16 +21,16 @@ export default function Lessons() {
   const completedLessons = lessons.filter(l => l.progress?.completed).length;
 
   if (loading) {
-    return <div className="flex justify-center py-12"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-anchor-600"></div></div>;
+    return <div className="flex justify-center py-12"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-buildmode-600"></div></div>;
   }
 
   return (
     <div className="space-y-6">
       <div className="card">
-        <h1 className="text-2xl font-bold text-anchor-900">Lessons</h1>
+        <h1 className="text-2xl font-bold text-buildmode-900">Lessons</h1>
         <p className="text-gray-600 mt-1">{completedLessons}/{lessons.length} completed</p>
         <div className="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden">
-          <div className="h-full bg-anchor-500 rounded-full transition-all" style={{ width: `${lessons.length ? (completedLessons / lessons.length) * 100 : 0}%` }} />
+          <div className="h-full bg-buildmode-500 rounded-full transition-all" style={{ width: `${lessons.length ? (completedLessons / lessons.length) * 100 : 0}%` }} />
         </div>
       </div>
 
@@ -39,7 +39,7 @@ export default function Lessons() {
         {categories.map(c => (
           <button key={c} onClick={() => setCategory(c)}
             className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
-              category === c ? 'bg-anchor-600 text-white' : 'bg-white text-gray-600 border border-anchor-200 hover:bg-anchor-50'
+              category === c ? 'bg-buildmode-600 text-white' : 'bg-white text-gray-600 border border-buildmode-200 hover:bg-buildmode-50'
             }`}
           >
             {c === 'all' ? 'All' : c.charAt(0).toUpperCase() + c.slice(1)}
@@ -67,7 +67,7 @@ export default function Lessons() {
               </div>
               <div className="ml-4">
                 {lesson.progress?.completed ? (
-                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-anchor-100 text-anchor-700 text-sm">✓</span>
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-buildmode-100 text-buildmode-700 text-sm">✓</span>
                 ) : lesson.is_premium && !isPremium ? (
                   <span className="text-lg">🔒</span>
                 ) : (

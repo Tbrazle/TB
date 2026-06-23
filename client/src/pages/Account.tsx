@@ -32,7 +32,7 @@ export default function Account() {
   return (
     <div className="space-y-6">
       <div className="card">
-        <h1 className="text-2xl font-bold text-anchor-900">Account</h1>
+        <h1 className="text-2xl font-bold text-buildmode-900">Account</h1>
       </div>
 
       {/* Profile */}
@@ -59,7 +59,7 @@ export default function Account() {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-gray-700">
-              Status: <span className={`font-medium ${subscription?.subscription_status === 'active' ? 'text-anchor-600' : 'text-gray-500'}`}>
+              Status: <span className={`font-medium ${subscription?.subscription_status === 'active' ? 'text-buildmode-600' : 'text-gray-500'}`}>
                 {subscription?.subscription_status || 'free'}
               </span>
             </p>
@@ -80,15 +80,15 @@ export default function Account() {
         <h2 className="font-semibold text-gray-800 mb-3">Stats</h2>
         <div className="grid grid-cols-3 gap-4 text-center">
           <div>
-            <div className="text-2xl font-bold text-anchor-700">--</div>
+            <div className="text-2xl font-bold text-buildmode-700">--</div>
             <div className="text-xs text-gray-500">Lessons</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-anchor-700">--</div>
+            <div className="text-2xl font-bold text-buildmode-700">--</div>
             <div className="text-xs text-gray-500">Streak</div>
           </div>
           <div>
-            <div className="text-2xl font-bold text-anchor-700">--</div>
+            <div className="text-2xl font-bold text-buildmode-700">--</div>
             <div className="text-xs text-gray-500">Habits</div>
           </div>
         </div>

@@ -26,11 +26,11 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-anchor-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-buildmode-50 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <span className="text-5xl">⚓</span>
-          <h1 className="text-3xl font-bold text-anchor-900 mt-3">Join Anchor</h1>
+          <span className="text-5xl">🔧</span>
+          <h1 className="text-3xl font-bold text-buildmode-900 mt-3">Join Build Mode</h1>
           <p className="text-gray-600 mt-2">Start building a stronger you.</p>
         </div>
 
@@ -54,7 +54,7 @@ export default function Signup() {
             {loading ? 'Creating account...' : 'Create account'}
           </button>
           <p className="text-center text-sm text-gray-500">
-            Already have an account? <Link to="/signin" className="text-anchor-600 font-medium hover:underline">Sign in</Link>
+            Already have an account? <Link to="/signin" className="text-buildmode-600 font-medium hover:underline">Sign in</Link>
           </p>
         </form>
       </div>

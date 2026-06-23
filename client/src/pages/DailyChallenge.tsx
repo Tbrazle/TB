@@ -29,7 +29,7 @@ export default function DailyChallenge() {
     } catch (err) { console.error(err); }
   };
 
-  if (loading) return <div className="flex justify-center py-12"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-anchor-600"></div></div>;
+  if (loading) return <div className="flex justify-center py-12"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-buildmode-600"></div></div>;
 
   if (!challenge) {
     return (
@@ -55,12 +55,12 @@ export default function DailyChallenge() {
   return (
     <div className="space-y-6">
       <div className="card">
-        <div className="flex items-center gap-2 text-sm text-anchor-600 mb-2">
+        <div className="flex items-center gap-2 text-sm text-buildmode-600 mb-2">
           <span>⭐ Daily Challenge</span>
           <span>·</span>
           <span>{challenge.category}</span>
         </div>
-        <h1 className="text-2xl font-bold text-anchor-900">{challenge.title}</h1>
+        <h1 className="text-2xl font-bold text-buildmode-900">{challenge.title}</h1>
         <p className="text-gray-600 mt-3 leading-relaxed">{challenge.description}</p>
       </div>
 
@@ -79,7 +79,7 @@ export default function DailyChallenge() {
       {completed ? (
         <div className="card text-center">
           <span className="text-4xl">🎉</span>
-          <p className="text-anchor-600 font-semibold mt-2">Challenge completed!</p>
+          <p className="text-buildmode-600 font-semibold mt-2">Challenge completed!</p>
         </div>
       ) : (
         <button onClick={handleComplete} className="btn-primary w-full py-3 text-lg">

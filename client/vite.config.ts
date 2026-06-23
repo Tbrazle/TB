@@ -9,9 +9,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Anchor - Life Skills for Men',
-        short_name: 'Anchor',
-        description: 'Build practical life skills, emotional intelligence, and healthy habits.',
+        name: 'Build Mode: The Man\'s Workshop',
+        short_name: 'Build Mode',
+        description: 'Practical life skills, emotional intelligence, and healthy habits for men.',
         theme_color: '#2d6a4f',
         background_color: '#f0fdf4',
         display: 'standalone',

@@ -7,7 +7,7 @@ interface RequestOptions {
 }
 
 async function request<T = unknown>(endpoint: string, options: RequestOptions = {}): Promise<T> {
-  const token = localStorage.getItem('anchor_token');
+  const token = localStorage.getItem('buildmode_token');
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     ...options.headers,
