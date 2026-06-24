@@ -17,6 +17,8 @@ import EmpressLayout from './pages/empress/EmpressLayout';
 import EmpressHome from './pages/empress/EmpressHome';
 import EmpressTiers from './pages/empress/EmpressTiers';
 import EmpressTribute from './pages/empress/EmpressTribute';
+import EmpressGallery from './pages/empress/EmpressGallery';
+import EmpressFeed from './pages/empress/EmpressFeed';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -46,6 +48,8 @@ export default function App() {
           <Route path="/empress" element={<EmpressHome />} />
           <Route path="/empress/tiers" element={<EmpressTiers />} />
           <Route path="/empress/tribute" element={<EmpressTribute />} />
+          <Route path="/empress/gallery" element={<EmpressGallery />} />
+          <Route path="/empress/feed" element={<EmpressFeed />} />
         </Route>
 
         {/* Protected routes with layout */}

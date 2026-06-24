@@ -5,6 +5,8 @@ const NAV_LINKS = [
   { path: '/empress', label: 'Home' },
   { path: '/empress/tiers', label: 'Membership' },
   { path: '/empress/tribute', label: 'Tribute' },
+  { path: '/empress/gallery', label: 'Gallery' },
+  { path: '/empress/feed', label: 'Feed' },
 ];
 
 export default function EmpressLayout() {
@@ -21,7 +23,7 @@ export default function EmpressLayout() {
               The Golden Empress
             </span>
           </Link>
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.path}
@@ -45,12 +47,12 @@ export default function EmpressLayout() {
             </a>
           </div>
           {/* Mobile menu */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-3 overflow-x-auto">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-xs tracking-widest uppercase transition-colors duration-300 ${
+                className={`text-xs tracking-widest uppercase whitespace-nowrap transition-colors duration-300 ${
                   location.pathname === link.path
                     ? 'text-empress-400'
                     : 'text-cream-300/60 hover:text-empress-300'
@@ -76,16 +78,16 @@ export default function EmpressLayout() {
           <p className="text-cream-300/40 text-sm tracking-wider">
             Luxury has a price — pay it.
           </p>
-          <div className="mt-6 flex justify-center gap-6">
-            <Link to="/empress" className="text-cream-300/40 hover:text-empress-400 text-xs tracking-widest uppercase transition-colors">
-              Home
-            </Link>
-            <Link to="/empress/tiers" className="text-cream-300/40 hover:text-empress-400 text-xs tracking-widest uppercase transition-colors">
-              Membership
-            </Link>
-            <Link to="/empress/tribute" className="text-cream-300/40 hover:text-empress-400 text-xs tracking-widest uppercase transition-colors">
-              Tribute
-            </Link>
+          <div className="mt-6 flex justify-center gap-6 flex-wrap">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="text-cream-300/40 hover:text-empress-400 text-xs tracking-widest uppercase transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
           <p className="mt-8 text-cream-300/20 text-xs">
             &copy; {new Date().getFullYear()} The Golden Empress. All rights reserved.

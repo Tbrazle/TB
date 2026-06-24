@@ -14,26 +14,28 @@ export default function EmpressHome() {
     <div className="text-cream-100">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0806] via-[#1a0e0a] to-[#0a0806]" />
+        {/* Background image */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-empress-500/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl" />
+          <img
+            src="/empress/empress-throne-hero.png"
+            alt="The Golden Empress on her throne"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0806]/90 via-[#0a0806]/70 to-[#0a0806]/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-transparent to-[#0a0806]/30" />
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <div className="animate-fade-in">
-            <p className="text-6xl mb-6">👑</p>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-empress-400 mb-4 tracking-tight">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-empress-400 mb-4 tracking-tight text-shadow-lg">
               The Golden<br />Empress
             </h1>
-            <p className="text-xl md:text-2xl text-cream-300/60 font-light tracking-widest uppercase mb-8">
+            <p className="text-xl md:text-2xl text-cream-300/80 font-light tracking-widest uppercase mb-8">
               You may kneel
             </p>
-            <p className="text-base md:text-lg text-cream-300/40 max-w-xl mx-auto mb-12 leading-relaxed">
-              An exclusive sanctuary for those who understand that true luxury demands devotion.
-              Step into a world of curated confidence, where your admiration is rewarded with
-              the presence of royalty.
+            <p className="text-base md:text-lg text-cream-300/60 max-w-xl mx-auto mb-12 leading-relaxed">
+              She commands from a throne of gold and shadow. Her world is gilded, her standards absolute.
+              Join an exclusive circle of devotees who understand that true luxury is earned — not bought.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -56,8 +58,45 @@ export default function EmpressHome() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-empress-600/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-empress-600/50 rounded-full mt-2" />
+          <div className="w-6 h-10 border-2 border-empress-400/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-empress-400/50 rounded-full mt-2" />
+          </div>
+        </div>
+      </section>
+
+      {/* About / Portrait Section */}
+      <section className="py-24 px-6 bg-[#0a0806]">
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative">
+            <img
+              src="/empress/empress-portrait-close.png"
+              alt="The Golden Empress portrait"
+              className="w-full h-auto rounded-lg shadow-2xl shadow-empress-700/20"
+            />
+            <div className="absolute -bottom-4 -right-4 w-full h-full border border-empress-500/20 rounded-lg -z-10" />
+          </div>
+          <div>
+            <p className="text-empress-500 text-sm tracking-[0.3em] uppercase mb-4">Her Presence</p>
+            <h2 className="font-display text-3xl md:text-4xl text-empress-400 mb-6">
+              Crowned in Fire. Bathed in Gold.
+            </h2>
+            <p className="text-cream-300/50 leading-relaxed mb-6">
+              Crimson hair. Sapphire eyes. A smile that promises nothing and demands everything.
+              She moves through shadows of velvet and gold — untouchable, unforgettable,
+              undeniable.
+            </p>
+            <p className="text-cream-300/40 leading-relaxed">
+              Every queen deserves a court. Every throne deserves devotion. Enter her realm
+              — where tribute becomes privilege, and admiration becomes purpose.
+            </p>
+            <div className="mt-8 flex gap-4">
+              <Link
+                to="/empress/gallery"
+                className="text-empress-400 hover:text-empress-300 text-sm tracking-widest uppercase transition-colors"
+              >
+                View Gallery →
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -103,14 +142,23 @@ export default function EmpressHome() {
         </div>
       </section>
 
-      {/* Quick Tribute Section */}
-      <section className="py-24 px-6 bg-gradient-to-b from-[#0a0806] to-[#120a08]">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Tribute CTA Section with Image */}
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="/empress/empress-tribute-card.png"
+            alt=""
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0806]/95 via-[#0a0806]/80 to-[#0a0806]/95" />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <p className="text-empress-500 text-sm tracking-[0.3em] uppercase mb-4">Show Your Devotion</p>
           <h2 className="font-display text-3xl md:text-4xl text-empress-400 mb-4">
             Send a Tribute
           </h2>
-          <p className="text-cream-300/40 mb-10 max-w-lg mx-auto">
+          <p className="text-cream-300/50 mb-10 max-w-lg mx-auto">
             Actions speak louder than words. Show the Empress she has your attention.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
@@ -141,7 +189,7 @@ export default function EmpressHome() {
       </section>
 
       {/* Tiers Preview */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 bg-[#0a0806]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-empress-500 text-sm tracking-[0.3em] uppercase mb-4">Membership</p>
@@ -155,81 +203,114 @@ export default function EmpressHome() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* Admirer */}
-            <div className="border border-empress-700/20 rounded-lg p-8 bg-white/[0.02] flex flex-col">
-              <p className="text-2xl mb-3">👁️</p>
-              <h3 className="font-display text-xl text-empress-400 mb-2">Admirer</h3>
-              <p className="text-2xl font-bold text-cream-100 mb-2">$9.99<small className="text-cream-300/40 text-sm font-normal">/mo</small></p>
-              <p className="text-cream-300/40 text-sm mb-6">For those who wish to observe from afar.</p>
-              <ul className="space-y-3 text-sm text-cream-300/60 mb-8 flex-1">
-                <li className="flex items-start gap-2">✓ Daily posts & updates</li>
-                <li className="flex items-start gap-2">✓ AI-generated luxury gallery</li>
-                <li className="flex items-start gap-2">✓ Confidence & abundance content</li>
-                <li className="flex items-start gap-2">✓ Weekly affirmations</li>
-                <li className="flex items-start gap-2">✓ Community feed access</li>
-              </ul>
-              <a
-                href={STRIPE_LINKS.admirer}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center border border-empress-600/50 hover:border-empress-500 text-empress-300 px-6 py-3 rounded text-xs tracking-widest uppercase transition-all duration-300"
-              >
-                Subscribe
-              </a>
+            <div className="border border-empress-700/20 rounded-lg overflow-hidden bg-white/[0.02] flex flex-col">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="/empress/empress-admirer-tier.png"
+                  alt="Admirer tier"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8 flex flex-col flex-1">
+                <h3 className="font-display text-xl text-empress-400 mb-1">Admirer</h3>
+                <p className="text-2xl font-bold text-cream-100 mb-2">$9.99<small className="text-cream-300/40 text-sm font-normal">/mo</small></p>
+                <p className="text-cream-300/40 text-sm mb-6">Step into her world. Watch from the shadows.</p>
+                <ul className="space-y-3 text-sm text-cream-300/60 mb-8 flex-1">
+                  <li className="flex items-start gap-2">✓ Daily posts & updates</li>
+                  <li className="flex items-start gap-2">✓ AI-generated luxury gallery</li>
+                  <li className="flex items-start gap-2">✓ Confidence & abundance content</li>
+                  <li className="flex items-start gap-2">✓ Weekly affirmations</li>
+                  <li className="flex items-start gap-2">✓ Community feed access</li>
+                </ul>
+                <a
+                  href={STRIPE_LINKS.admirer}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center border border-empress-600/50 hover:border-empress-500 text-empress-300 px-6 py-3 rounded text-xs tracking-widest uppercase transition-all duration-300"
+                >
+                  Subscribe
+                </a>
+              </div>
             </div>
 
             {/* Devotee */}
-            <div className="border border-empress-500/30 rounded-lg p-8 bg-gradient-to-b from-empress-700/5 to-transparent flex flex-col relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-empress-600 text-white text-xs px-4 py-1 rounded-full tracking-widest uppercase">
-                Popular
+            <div className="border border-empress-500/30 rounded-lg overflow-hidden bg-gradient-to-b from-empress-700/5 to-transparent flex flex-col relative">
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 bg-empress-600 text-white text-xs px-4 py-1 rounded-full tracking-widest uppercase z-10">
+                Most Popular
               </div>
-              <p className="text-2xl mb-3">🔥</p>
-              <h3 className="font-display text-xl text-empress-400 mb-2">Devotee</h3>
-              <p className="text-2xl font-bold text-cream-100 mb-2">$29.99<small className="text-cream-300/40 text-sm font-normal">/mo</small></p>
-              <p className="text-cream-300/40 text-sm mb-6">For those ready to step closer to the throne.</p>
-              <ul className="space-y-3 text-sm text-cream-300/60 mb-8 flex-1">
-                <li className="flex items-start gap-2">✓ Everything in Admirer</li>
-                <li className="flex items-start gap-2">✓ Exclusive photo sets</li>
-                <li className="flex items-start gap-2">✓ Exclusive short videos</li>
-                <li className="flex items-start gap-2">✓ Weekly personalized text</li>
-                <li className="flex items-start gap-2">✓ Priority message responses</li>
-              </ul>
-              <a
-                href={STRIPE_LINKS.devotee}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center bg-empress-600 hover:bg-empress-500 text-white px-6 py-3 rounded text-xs tracking-widest uppercase transition-all duration-300 shadow-lg shadow-empress-600/20"
-              >
-                Subscribe
-              </a>
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="/empress/empress-devotee-tier.png"
+                  alt="Devotee tier"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8 flex flex-col flex-1">
+                <h3 className="font-display text-xl text-empress-400 mb-1">Devotee</h3>
+                <p className="text-2xl font-bold text-cream-100 mb-2">$29.99<small className="text-cream-300/40 text-sm font-normal">/mo</small></p>
+                <p className="text-cream-300/40 text-sm mb-6">Closer. Warmer. More exclusive.</p>
+                <ul className="space-y-3 text-sm text-cream-300/60 mb-8 flex-1">
+                  <li className="flex items-start gap-2">✓ Everything in Admirer</li>
+                  <li className="flex items-start gap-2">✓ Exclusive photo sets</li>
+                  <li className="flex items-start gap-2">✓ Exclusive short videos</li>
+                  <li className="flex items-start gap-2">✓ Weekly personalized text</li>
+                  <li className="flex items-start gap-2">✓ Priority message responses</li>
+                </ul>
+                <a
+                  href={STRIPE_LINKS.devotee}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center bg-empress-600 hover:bg-empress-500 text-white px-6 py-3 rounded text-xs tracking-widest uppercase transition-all duration-300 shadow-lg shadow-empress-600/20"
+                >
+                  Subscribe
+                </a>
+              </div>
             </div>
 
             {/* Inner Circle */}
-            <div className="border border-empress-700/20 rounded-lg p-8 bg-white/[0.02] flex flex-col">
-              <p className="text-2xl mb-3">👑</p>
-              <h3 className="font-display text-xl text-empress-400 mb-2">Inner Circle</h3>
-              <p className="text-2xl font-bold text-cream-100 mb-2">$99<small className="text-cream-300/40 text-sm font-normal">/mo</small></p>
-              <p className="text-cream-300/40 text-sm mb-6">For those worthy of the Empress's personal attention.</p>
-              <ul className="space-y-3 text-sm text-cream-300/60 mb-8 flex-1">
-                <li className="flex items-start gap-2">✓ Everything in Devotee</li>
-                <li className="flex items-start gap-2">✓ Weekly personalized video</li>
-                <li className="flex items-start gap-2">✓ Weekly private chat access</li>
-                <li className="flex items-start gap-2">✓ Custom affirmation recordings</li>
-                <li className="flex items-start gap-2">✓ Priority content access</li>
-              </ul>
-              <a
-                href={STRIPE_LINKS.innerCircle}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center border border-empress-600/50 hover:border-empress-500 text-empress-300 px-6 py-3 rounded text-xs tracking-widest uppercase transition-all duration-300"
-              >
-                Subscribe
-              </a>
+            <div className="border border-empress-700/20 rounded-lg overflow-hidden bg-white/[0.02] flex flex-col">
+              <div className="h-48 overflow-hidden">
+                <img
+                  src="/empress/empress-inner-circle-tier.png"
+                  alt="Inner Circle tier"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8 flex flex-col flex-1">
+                <h3 className="font-display text-xl text-empress-400 mb-1">Inner Circle</h3>
+                <p className="text-2xl font-bold text-cream-100 mb-2">$99<small className="text-cream-300/40 text-sm font-normal">/mo</small></p>
+                <p className="text-cream-300/40 text-sm mb-6">The throne room door opens for you.</p>
+                <ul className="space-y-3 text-sm text-cream-300/60 mb-8 flex-1">
+                  <li className="flex items-start gap-2">✓ Everything in Devotee</li>
+                  <li className="flex items-start gap-2">✓ Weekly personalized video</li>
+                  <li className="flex items-start gap-2">✓ Weekly private chat access</li>
+                  <li className="flex items-start gap-2">✓ Custom affirmation recordings</li>
+                  <li className="flex items-start gap-2">✓ Priority content access</li>
+                </ul>
+                <a
+                  href={STRIPE_LINKS.innerCircle}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center border border-empress-600/50 hover:border-empress-500 text-empress-300 px-6 py-3 rounded text-xs tracking-widest uppercase transition-all duration-300"
+                >
+                  Subscribe
+                </a>
+              </div>
             </div>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to="/empress/tiers"
+              className="inline-block border border-empress-600/30 hover:border-empress-500 text-empress-300 px-8 py-3 rounded text-xs tracking-widest uppercase transition-all duration-300"
+            >
+              Full Tier Comparison →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Final CTA */}
       <section className="py-24 px-6 bg-gradient-to-t from-[#0a0806] to-transparent">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-5xl mb-6">👑</p>
