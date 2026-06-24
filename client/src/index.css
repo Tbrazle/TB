@@ -25,3 +25,30 @@
     @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-buildmode-500 focus:border-buildmode-500 outline-none transition-all duration-200;
   }
 }
+
+/* Empress Custom Styles */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scroll for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Empress scrollbar */
+.empress-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.empress-scrollbar::-webkit-scrollbar-track {
+  background: #0a0806;
+}
+.empress-scrollbar::-webkit-scrollbar-thumb {
+  background: #6e5107;
+  border-radius: 3px;
+}
+.empress-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #936e09;
+}

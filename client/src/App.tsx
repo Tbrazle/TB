@@ -12,6 +12,12 @@ import DailyChallenge from './pages/DailyChallenge';
 import Account from './pages/Account';
 import Pricing from './pages/Pricing';
 
+// Empress imports
+import EmpressLayout from './pages/empress/EmpressLayout';
+import EmpressHome from './pages/empress/EmpressHome';
+import EmpressTiers from './pages/empress/EmpressTiers';
+import EmpressTribute from './pages/empress/EmpressTribute';
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
   if (loading) return <div className="flex items-center justify-center min-h-screen"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-buildmode-600"></div></div>;
@@ -34,6 +40,13 @@ export default function App() {
         <Route path="/signin" element={<PublicRoute><Signin /></PublicRoute>} />
         <Route path="/signup" element={<PublicRoute><Signup /></PublicRoute>} />
         <Route path="/pricing" element={<PublicRoute><Pricing /></PublicRoute>} />
+
+        {/* The Golden Empress public pages */}
+        <Route element={<EmpressLayout />}>
+          <Route path="/empress" element={<EmpressHome />} />
+          <Route path="/empress/tiers" element={<EmpressTiers />} />
+          <Route path="/empress/tribute" element={<EmpressTribute />} />
+        </Route>
 
         {/* Protected routes with layout */}
         <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
