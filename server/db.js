@@ -1,31 +1,29 @@
-import Database from 'better-sqlite3';
+import { createClient } from '@libsql/client';
+import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import fs from 'fs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DB_PATH = process.env.DB_PATH || path.join(__dirname, '..', 'data', 'anchor.db');
+dotenv.config({ path: path.join(__dirname, '.env') });
 
-// Ensure data directory exists
-const dataDir = path.dirname(DB_PATH);
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir, { recursive: true });
-}
+const TURSO_DATABASE_URL = process.env.TURSO_DATABASE_URL;
+const TURSO_AUTH_TOKEN = process.env.TURSO_AUTH_TOKEN;
 
 let db;
 
 export function getDb() {
   if (!db) {
-    db = new Database(DB_PATH);
-    db.pragma('journal_mode = WAL');
-    db.pragma('foreign_keys = ON');
-    initSchema();
+    db = createClient({
+      url: TURSO_DATABASE_URL || 'file:local.db',
+      authToken: TURSO_AUTH_TOKEN,
+    });
   }
   return db;
 }
 
-function initSchema() {
-  db.exec(`
+export async function initSchema() {
+  const client = getDb();
+  const schema = `
     CREATE TABLE IF NOT EXISTS users (
       id TEXT PRIMARY KEY,
       email TEXT UNIQUE NOT NULL,
@@ -130,7 +128,24 @@ function initSchema() {
       order_index INTEGER DEFAULT 0,
       FOREIGN KEY (checklist_id) REFERENCES checklists(id)
     );
-  `);
+  `;
+
+  try {
+    await client.executeMultiple(schema);
+  } catch (err) {
+    // Fallback: run statements individually
+    const statements = schema.split(';').filter(s => s.trim());
+    for (const stmt of statements) {
+      try {
+        await client.execute(stmt + ';');
+      } catch (innerErr) {
+        // Ignore "already exists" errors
+        if (!innerErr.message?.includes('already exists')) {
+          console.error('Schema init error:', innerErr.message);
+        }
+      }
+    }
+  }
 }
 
 export default getDb;

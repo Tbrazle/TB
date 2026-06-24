@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { getDb } from './db.js';
+import { initSchema } from './db.js';
 
 import authRoutes from './routes/auth.js';
 import subscriptionRoutes from './routes/subscription.js';
@@ -39,9 +39,13 @@ app.get('*', (req, res) => {
   }
 });
 
-// Initialize DB
-getDb();
-
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Build Mode server running on http://0.0.0.0:${PORT}`);
+// Initialize DB and schema
+app.listen(PORT, '0.0.0.0', async () => {
+  try {
+    await initSchema();
+    console.log(`Build Mode server running on http://0.0.0.0:${PORT}`);
+  } catch (err) {
+    console.error('Failed to initialize database:', err);
+    process.exit(1);
+  }
 });
