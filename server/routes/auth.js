@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 import { getDb } from '../db.js';
 import { hashPassword, verifyPassword, generateToken, authMiddleware } from '../auth.js';
+import { sendWelcomeEmail } from '../email.js';
 
 const router = Router();
 
@@ -28,6 +29,9 @@ router.post('/signup', async (req, res) => {
     });
 
     const token = generateToken(id);
+
+    // Send welcome email (don't block response)
+    sendWelcomeEmail(email, name).catch(err => console.error('Welcome email error:', err));
 
     res.status(201).json({
       user: { id, email, name: name || '', subscription_status: 'free' },
